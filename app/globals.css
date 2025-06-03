@@ -1,0 +1,453 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+
+    --radius: 0.5rem;
+
+    /* Sidebar variables for light mode */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.9% 20%; /* Darker text for better contrast */
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 92%; /* Lighter background for better contrast */
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-rail: 0 0% 90%; /* Light mode rail color */
+
+    /* Spacing scale (following Tailwind's default scale) */
+    --spacing-px: 1px;
+    --spacing-0: 0;
+    --spacing-0-5: 0.125rem; /* 2px */
+    --spacing-1: 0.25rem; /* 4px */
+    --spacing-1-5: 0.375rem; /* 6px */
+    --spacing-2: 0.5rem; /* 8px */
+    --spacing-2-5: 0.625rem; /* 10px */
+    --spacing-3: 0.75rem; /* 12px */
+    --spacing-3-5: 0.875rem; /* 14px */
+    --spacing-4: 1rem; /* 16px */
+    --spacing-5: 1.25rem; /* 20px */
+    --spacing-6: 1.5rem; /* 24px */
+    --spacing-7: 1.75rem; /* 28px */
+    --spacing-8: 2rem; /* 32px */
+    --spacing-9: 2.25rem; /* 36px */
+    --spacing-10: 2.5rem; /* 40px */
+    --spacing-11: 2.75rem; /* 44px */
+    --spacing-12: 3rem; /* 48px */
+    --spacing-14: 3.5rem; /* 56px */
+    --spacing-16: 4rem; /* 64px */
+    --spacing-20: 5rem; /* 80px */
+    --spacing-24: 6rem; /* 96px */
+    --spacing-28: 7rem; /* 112px */
+    --spacing-32: 8rem; /* 128px */
+    --spacing-36: 9rem; /* 144px */
+    --spacing-40: 10rem; /* 160px */
+    --spacing-44: 11rem; /* 176px */
+    --spacing-48: 12rem; /* 192px */
+    --spacing-52: 13rem; /* 208px */
+    --spacing-56: 14rem; /* 224px */
+    --spacing-60: 15rem; /* 240px */
+    --spacing-64: 16rem; /* 256px */
+    --spacing-72: 18rem; /* 288px */
+    --spacing-80: 20rem; /* 320px */
+    --spacing-96: 24rem; /* 384px */
+
+    /* Brand colors - Simple hex values */
+    --brand-primary: #6366f1; /* Your custom brand color - indigo-500 */
+    --brand-primary-foreground: #ffffff;
+    --brand-secondary: #4f46e5; /* Darker variant - indigo-600 */
+    --brand-accent: #818cf8; /* Lighter variant - indigo-400*/
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 25%; /* Increased contrast for better visibility */
+    --input: 0 0% 40%; /* Increased contrast for input borders */
+    --ring: 0 0% 83.1%;
+
+    /* Sidebar variables for dark mode */
+    --sidebar-background: 0 0% 10%; /* Match background */
+    --sidebar-foreground: 0 0% 100%; /* Brighter text for better contrast */
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 0 0% 9%;
+    --sidebar-accent: 0 0% 18%; /* Slightly lighter background for better contrast */
+    --sidebar-accent-foreground: 0 0% 100%; /* Brighter text for better contrast */
+    --sidebar-border: 0 0% 20%; /* Match border */
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-rail: 0 0% 20%; /* Dark mode rail color - #333 is roughly 0 0% 20% */
+
+    /* Brand colors for dark mode - Lighter variants for better contrast */
+    --brand-primary: #818cf8; /* Lighter in dark mode */
+    --brand-primary-foreground: #1e1b4b; /* Dark indigo */
+    --brand-secondary: #6366f1;
+    --brand-accent: #a5b4fc;
+  }
+}
+
+@layer utilities {
+  /* Ensure dropdown menus always appear on top of other elements */
+  .dropdown-menu-content {
+    z-index: 50 !important;
+  }
+}
+
+@layer components {
+  /* Ensure headers stay on top of content */
+  header.sticky {
+    z-index: 50 !important;
+    position: sticky;
+    background-color: hsl(var(--background));
+  }
+
+  /* Fix for blue outline on hover - but preserve cursor behavior */
+  *:focus {
+    outline: none !important;
+  }
+
+  /* Ensure links and buttons are clickable with proper cursor */
+  a,
+  button,
+  [role="button"],
+  [role="menuitem"],
+  [role="tab"],
+  .cursor-pointer {
+    cursor: pointer !important;
+  }
+
+  /* Ensure interactive elements show pointer cursor */
+  [data-sidebar="menu-button"],
+  [data-sidebar="trigger"],
+  [data-sidebar="rail"],
+  .dropdown-menu-trigger,
+  [data-radix-collection-item],
+  [tabindex="0"]:not(input):not(textarea),
+  .clickable {
+    cursor: pointer !important;
+  }
+
+  /* Disabled elements should show default cursor */
+  [disabled],
+  [aria-disabled="true"],
+  .disabled {
+    cursor: default !important;
+  }
+
+  /* Checkbox styling for both light and dark mode */
+  .checkbox {
+    @apply border-gray-400 dark:border-input;
+  }
+
+  /* Focus state */
+  .checkbox:focus-visible {
+    @apply border-gray-500 dark:border-muted-foreground;
+  }
+  .rdp-table {
+    width: 100%;
+  }
+  /* Fix for dropdown menus appearing below content */
+  [data-radix-popper-content-wrapper] {
+    z-index: 50 !important;
+  }
+
+  /* Force text colors in dark mode for tables and buttons */
+  .dark .text-primary {
+    color: hsl(var(--primary)) !important;
+  }
+
+  .dark .text-foreground {
+    color: hsl(var(--foreground)) !important;
+  }
+
+  .dark .text-card-foreground {
+    color: hsl(var(--card-foreground)) !important;
+  }
+
+  .dark button,
+  .dark .button {
+    color: hsl(var(--foreground));
+  }
+  .dark .button-primary,
+  .dark button[data-variant="default"],
+  .dark .bg-primary {
+    color: hsl(var(--primary-foreground));
+  }
+
+  .dark table {
+    color: hsl(var(--foreground));
+  }
+
+  .dark tbody td {
+    color: hsl(var(--foreground));
+  }
+
+  .dark .bg-background {
+    background-color: hsl(var(--background));
+  }
+
+  /* Sidebar header */
+  [data-sidebar="header"] {
+    padding-top: var(--spacing-3);
+    padding-bottom: var(--spacing-3);
+    margin-bottom: var(--spacing-4);
+  }
+
+  [data-sidebar="header"] [data-sidebar="menu-button"][data-size="lg"] {
+    height: var(--spacing-14) !important; /* 3.5rem = 56px */
+    min-height: var(--spacing-14) !important;
+    max-height: var(--spacing-14) !important;
+  }
+
+  /* Direct styling for the sidebar rail in both light and dark mode */
+  [data-sidebar="rail"]::after {
+    width: var(--spacing-px) !important; /* 1px */
+    background-color: hsl(var(--sidebar-rail));
+    border-color: transparent;
+  }
+
+  /* Style for light mode */
+  [data-sidebar="rail"]::after {
+    background-color: hsl(var(--sidebar-rail));
+  }
+
+  /* Style for dark mode */
+  .dark [data-sidebar="rail"]::after {
+    background-color: hsl(var(--sidebar-rail));
+    border-color: transparent;
+  }
+
+  /* Hover styles */
+  [data-sidebar="rail"]:hover::after {
+    background-color: hsl(var(--sidebar-rail));
+  }
+
+  .dark [data-sidebar="rail"]:hover::after {
+    background-color: hsl(var(--sidebar-rail));
+  }
+
+  /* Input styling in dark mode */
+  .dark .border-input {
+    border-color: hsl(var(--input));
+  }
+
+  .dark input,
+  .dark .input {
+    border-color: hsl(var(--input));
+  }
+
+  /* Dropdown button styling in dark mode */
+  .dark [data-state="open"] > .border,
+  .dark .border-border {
+    border-color: hsl(var(--border));
+  }
+
+  .dark button[role="combobox"],
+  .dark [role="combobox"] {
+    border-color: hsl(var(--input));
+  }
+
+  /* Ensure all borders in dark mode are visible */
+  .dark .border {
+    border-color: hsl(var(--border));
+  }
+
+  .dark [data-radix-popper-content-wrapper] * {
+    border-color: hsl(var(--border));
+  }
+
+  /* Ensure consistent height for sidebar menu items */
+  [data-sidebar="menu-button"] {
+    height: var(--spacing-10) !important; /* 2rem = 32px */
+    min-height: var(--spacing-10) !important;
+    max-height: var(--spacing-10) !important;
+  }
+
+  [data-sidebar="menu-item"] {
+    height: var(--spacing-10) !important; /* 2rem = 32px */
+  }
+
+  /* Ensure active state doesn't change dimensions */
+  [data-sidebar="menu-button"][data-active="true"] {
+    height: var(--spacing-10) !important; /* 2rem = 32px */
+    min-height: var(--spacing-10) !important;
+    max-height: var(--spacing-10) !important;
+  }
+
+  /* Fix for button text in dark mode */
+  .dark .button-primary,
+  .dark button[data-variant="default"],
+  .dark .bg-primary {
+    color: hsl(var(--primary-foreground)) !important;
+    background-color: hsl(var(--primary));
+  }
+
+  /* Fix for ghost buttons in dark mode */
+  .dark button[data-variant="ghost"],
+  .dark .button-ghost {
+    color: hsl(var(--foreground));
+    background-color: transparent;
+  }
+
+  /* Fix for outline buttons in dark mode */
+  .dark button[data-variant="outline"],
+  .dark .button-outline {
+    color: hsl(var(--foreground));
+    background-color: transparent;
+    border-color: hsl(var(--border));
+  }
+
+  /* Fix for dropdown menu buttons in dark mode */
+  .dark [role="menuitem"] {
+    color: hsl(var(--popover-foreground));
+  }
+
+  /* Fix for sidebar menu buttons in dark mode */
+  .dark [data-sidebar="menu-button"] {
+    color: hsl(var(--sidebar-foreground));
+  }
+
+  /* Fix for active sidebar menu buttons in dark mode */
+  .dark [data-sidebar="menu-button"][data-active="true"] {
+    color: hsl(var(--sidebar-accent-foreground));
+    background-color: hsl(var(--sidebar-accent));
+  }
+
+  /* Increase contrast for checkbox outlines in dark mode */
+  .dark .checkbox {
+    border-color: hsl(var(--input)) !important;
+  }
+
+  /* Target the specific checkbox component structure */
+  .dark [role="checkbox"],
+  .dark [data-state="checked"],
+  .dark [data-state="unchecked"] {
+    border-color: hsl(var(--input)) !important;
+  }
+
+  /* Target the checkbox when it's inside a table */
+  .dark table [role="checkbox"],
+  .dark table .checkbox,
+  .dark tbody [role="checkbox"],
+  .dark tbody .checkbox,
+  .dark tr [role="checkbox"],
+  .dark tr .checkbox,
+  .dark td [role="checkbox"],
+  .dark td .checkbox,
+  .dark th [role="checkbox"],
+  .dark th .checkbox {
+    border-color: hsl(var(--input)) !important;
+  }
+
+  /* Focus states */
+  .dark [role="checkbox"]:focus-visible,
+  .dark .checkbox:focus-visible {
+    border-color: hsl(var(--muted-foreground)) !important;
+    outline: var(--spacing-0-5) solid hsl(var(--border)) !important; /* 2px */
+    outline-offset: var(--spacing-px); /* 1px */
+  }
+
+  /* Enhanced contrast for sidebar menu buttons */
+  [data-sidebar="menu-button"] {
+    font-weight: 500; /* Medium font weight for better visibility */
+  }
+
+  /* Hover state with increased contrast */
+  [data-sidebar="menu-button"]:hover {
+    background-color: hsl(var(--sidebar-accent));
+    color: hsl(var(--sidebar-accent-foreground));
+  }
+
+  /* Active state with increased contrast */
+  [data-sidebar="menu-button"][data-active="true"] {
+    font-weight: 600; /* Semi-bold for active items */
+    background-color: hsl(var(--sidebar-accent));
+    color: hsl(var(--sidebar-accent-foreground));
+  }
+
+  /* Dark mode specific enhancements */
+  .dark [data-sidebar="menu-button"] {
+    color: hsl(var(--sidebar-foreground));
+  }
+
+  .dark [data-sidebar="menu-button"]:hover {
+    background-color: hsl(var(--sidebar-accent));
+    color: hsl(var(--sidebar-accent-foreground));
+  }
+
+  .dark [data-sidebar="menu-button"][data-active="true"] {
+    background-color: hsl(var(--sidebar-accent));
+    color: hsl(var(--sidebar-accent-foreground));
+  }
+
+  /* Progress component styling with brand colors */
+  [data-radix-progress-indicator] {
+    background-color: var(--brand-primary) !important;
+  }
+
+  /* Alternative approach using the Progress component classes */
+  .progress-indicator {
+    background-color: var(--brand-primary);
+  }
+
+  /* Ensure progress bars use brand color */
+  [role="progressbar"] > div {
+    background-color: var(--brand-primary);
+  }
+
+  /* Target the specific progress bar fill */
+  .bg-brand-primary {
+    background-color: var(--brand-primary) !important;
+  }
+}
